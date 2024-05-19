@@ -42,6 +42,7 @@ public class MetodosEmpresa {
         return totalPago;
     }
 
+    // Aqui vocês falaram pra retornar o funcionário que recebeu o valor mais alto, então retornei o objeto inteiro
     Funcionario funcionarioMaisRecebeuNoMes(List<Funcionario> funcionarios, LocalDate periodo) {
         Funcionario oMaisRicoDoMes = null;
         float salarioAtual;
@@ -55,5 +56,25 @@ public class MetodosEmpresa {
         }
 
         return oMaisRicoDoMes;
+    }
+
+    // Aqui vocês falaram pra retornar o *nome*, então vou retornar apenas a string do nome
+    String funcionarioMaisRecebeuBeneficiosMes(List<Funcionario> funcionarios, LocalDate periodo) throws Exception {
+        Funcionario oQueMaisRecebeuOsBeneficios = null;
+        float beneficioAtual;
+
+        for(int i = 0; i < funcionarios.size(); i++) {
+            if(!funcionarios.get(i).getRecBeneficio()) {
+                throw new Exception("A lista só pode receber funcionários que recebem benefícios!");
+            }
+
+            beneficioAtual = funcionarios.get(i).getBeneficioPeriodo(periodo);
+
+            if(i == 0 || beneficioAtual > oQueMaisRecebeuOsBeneficios.getBeneficioPeriodo(periodo)) {
+                oQueMaisRecebeuOsBeneficios = funcionarios.get(i);
+            }
+        }
+
+        return oQueMaisRecebeuOsBeneficios.getNome(); // Retornando apenas o nome aqui
     }
 }

@@ -32,11 +32,13 @@ public class Main {
 
         Secretario Jorge = new Secretario("Jorge Carvalho", LocalDate.of(2018, 01, 01));
         Vendedor Ana = new Vendedor("Ana Silva", LocalDate.of(2021, 12, 01), vendasAna);
+        Vendedor Joao = new Vendedor("João Mendes", LocalDate.of(2021, 12, 01), vendasJoao);
         Gerente Bento = new Gerente("Bento Albino", LocalDate.of(2014, 03, 01));
 
         System.out.println(metodos.totalPagoNoMes(Arrays.asList(Jorge, Ana, Bento), LocalDate.of(2021, 12, 01)));
         System.out.println(metodos.totalPagoEmSalarioMes(Arrays.asList(Jorge, Ana, Bento), LocalDate.of(2021, 12, 01)));
-        System.out.println(metodos.totalPagoEmBeneficiosMes(Arrays.asList(Jorge, Ana), LocalDate.of(2021, 12, 01)));
+        System.out.println(metodos.totalPagoEmBeneficiosMes(Arrays.asList(Jorge, Ana, Joao), LocalDate.of(2021, 12, 01)));
         System.out.println(metodos.funcionarioMaisRecebeuNoMes(Arrays.asList(Jorge, Ana, Bento), LocalDate.of(2021, 12, 01)).getNome());
+        System.out.println(metodos.funcionarioMaisRecebeuBeneficiosMes(Arrays.asList(Jorge, Joao, Ana), LocalDate.of(2021, 12, 01)));
     }
 }
