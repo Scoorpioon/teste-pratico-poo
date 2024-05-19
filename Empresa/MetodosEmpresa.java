@@ -41,4 +41,19 @@ public class MetodosEmpresa {
 
         return totalPago;
     }
+
+    Funcionario funcionarioMaisRecebeuNoMes(List<Funcionario> funcionarios, LocalDate periodo) {
+        Funcionario oMaisRicoDoMes = null;
+        float salarioAtual;
+        
+        for(int i = 0; i < funcionarios.size(); i++) {
+            salarioAtual = funcionarios.get(i).getSalarioPeriodo(periodo, false);
+
+            if(i == 0 || salarioAtual > oMaisRicoDoMes.getSalarioPeriodo(periodo, false)) {
+                oMaisRicoDoMes = funcionarios.get(i);
+            }
+        }
+
+        return oMaisRicoDoMes;
+    }
 }

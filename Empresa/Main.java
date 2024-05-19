@@ -37,5 +37,6 @@ public class Main {
         System.out.println(metodos.totalPagoNoMes(Arrays.asList(Jorge, Ana, Bento), LocalDate.of(2021, 12, 01)));
         System.out.println(metodos.totalPagoEmSalarioMes(Arrays.asList(Jorge, Ana, Bento), LocalDate.of(2021, 12, 01)));
         System.out.println(metodos.totalPagoEmBeneficiosMes(Arrays.asList(Jorge, Ana), LocalDate.of(2021, 12, 01)));
+        System.out.println(metodos.funcionarioMaisRecebeuNoMes(Arrays.asList(Jorge, Ana, Bento), LocalDate.of(2021, 12, 01)).getNome());
     }
 }
