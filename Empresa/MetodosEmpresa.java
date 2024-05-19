@@ -9,10 +9,13 @@ import Funcionarios.Vendedor;
 
 public class MetodosEmpresa {
     public float totalPagoNoMes(List<Funcionario> funcionarios, LocalDate periodo) {
+        float totalPago = 0;
+        
         for(int i = 0; i < funcionarios.size(); i++) {
-            System.out.println(funcionarios.get(i).getNome() + ": " + funcionarios.get(i).getSalarioPeriodo(periodo));
+            totalPago += funcionarios.get(i).getSalarioPeriodo(periodo);
+            /* System.out.println(funcionarios.get(i).getNome() + ": " + funcionarios.get(i).getSalarioPeriodo(periodo)); */
         }
 
-        return 0.01f;
+        return totalPago;
     }
 }

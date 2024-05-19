@@ -34,6 +34,6 @@ public class Main {
         Vendedor Ana = new Vendedor("Ana Silva", LocalDate.of(2021, 12, 01), vendasAna);
         Gerente Bento = new Gerente("Bento Albino", LocalDate.of(2014, 03, 01));
 
-        metodos.totalPagoNoMes(Arrays.asList(Jorge, Ana, Bento), LocalDate.of(2021, 12, 01));
+        System.out.println(metodos.totalPagoNoMes(Arrays.asList(Jorge, Ana, Bento), LocalDate.of(2021, 12, 01)));
     }
 }
