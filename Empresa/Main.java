@@ -33,16 +33,19 @@ public class Main {
 
         // Instância dos funcionários
         Secretario Jorge = new Secretario("Jorge Carvalho", LocalDate.of(2018, 01, 01));
+        Secretario Maria = new Secretario("Maria Souza", LocalDate.of(2015, 12, 01));
         Vendedor Ana = new Vendedor("Ana Silva", LocalDate.of(2021, 12, 01), vendasAna);
         Vendedor Joao = new Vendedor("João Mendes", LocalDate.of(2021, 12, 01), vendasJoao);
+        Gerente Juliana = new Gerente("Juliana Alves", LocalDate.of(2017, 07, 01));
         Gerente Bento = new Gerente("Bento Albino", LocalDate.of(2014, 03, 01));
 
         // Testes de todos os métodos
-        System.out.println(metodos.totalPagoNoMes(Arrays.asList(Jorge, Ana, Bento), LocalDate.of(2021, 12, 01)));
-        System.out.println(metodos.totalPagoEmSalarioMes(Arrays.asList(Jorge, Ana, Bento), LocalDate.of(2021, 12, 01)));
-        System.out.println(metodos.totalPagoEmBeneficiosMes(Arrays.asList(Jorge, Ana, Joao), LocalDate.of(2021, 12, 01)));
-        System.out.println(metodos.funcionarioMaisRecebeuNoMes(Arrays.asList(Jorge, Ana, Bento), LocalDate.of(2021, 12, 01)).getNome());
-        System.out.println(metodos.funcionarioMaisRecebeuBeneficiosMes(Arrays.asList(Jorge, Joao, Ana), LocalDate.of(2021, 12, 01)));
-        System.out.println(metodos.funcionarioMaisVendeuMes(Arrays.asList(Joao, Ana), LocalDate.of(2022, 01, 01)).getNome());
+        System.out.println("- Teste feito para a data de 12/2021 - ");
+        System.out.println("Total pago a todos os funcionarios: " + metodos.totalPagoNoMes(Arrays.asList(Jorge, Ana, Bento, Maria, Juliana, Joao), LocalDate.of(2021, 12, 01)));
+        System.out.println("Total pago em salário a todos os funcionários: " + metodos.totalPagoEmSalarioMes(Arrays.asList(Jorge, Ana, Bento, Maria, Joao, Juliana), LocalDate.of(2021, 12, 01)));
+        System.out.println("Total pago em benefícios a todos os funcionarios que recebem: " + metodos.totalPagoEmBeneficiosMes(Arrays.asList(Jorge, Ana, Joao, Maria), LocalDate.of(2021, 12, 01)));
+        System.out.println("O funcionário que mais recebeu é: " + metodos.funcionarioMaisRecebeuNoMes(Arrays.asList(Jorge, Ana, Bento), LocalDate.of(2021, 12, 01)).getNome());
+        System.out.println("O funcionário que mais recebeu benefícios é: " + metodos.funcionarioMaisRecebeuBeneficiosMes(Arrays.asList(Jorge, Joao, Ana), LocalDate.of(2021, 12, 01)));
+        System.out.println("O funcionário que mais vendeu nesse mês é: " + metodos.funcionarioMaisVendeuMes(Arrays.asList(Joao, Ana), LocalDate.of(2021, 12, 01)).getNome());
     }
 }
