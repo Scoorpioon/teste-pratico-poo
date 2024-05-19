@@ -15,7 +15,7 @@ public class Gerente extends Funcionario {
     }
 
     @Override
-    public float getSalarioPeriodo(LocalDate periodo) {
+    public float getSalarioPeriodo(LocalDate periodo, boolean somenteSalario) {
         return this.salario + (3000 * (Math.abs(periodo.getYear() - this.dataContratacao.getYear())));
     }
 }

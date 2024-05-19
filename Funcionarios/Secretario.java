@@ -13,10 +13,14 @@ public class Secretario extends Funcionario {
     }
 
     @Override
-    public float getSalarioPeriodo(LocalDate periodo) {
+    public float getSalarioPeriodo(LocalDate periodo, boolean somenteSalario) {
         float salarioPeriodo = this.salario + (1000 * (Math.abs(periodo.getYear() - this.dataContratacao.getYear()))); // Deixei o valor absoluto aqui pra não ficar negativo hahah
         float beneficio = 0.2f * this.salario; // Considerei que os 20% de bônus é sobre o salário base!
 
-        return salarioPeriodo + beneficio;
+        if(somenteSalario) {
+            return salarioPeriodo;
+        } else {
+            return salarioPeriodo + beneficio;
+        }
     }
 }

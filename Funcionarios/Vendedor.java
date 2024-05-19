@@ -42,13 +42,17 @@ public class Vendedor extends Funcionario {
     }
 
     @Override
-    public float getSalarioPeriodo(LocalDate periodo) {
+    public float getSalarioPeriodo(LocalDate periodo, boolean somenteSalario) {
         float salarioPeriodo = this.salario + (1800 * (Math.abs(periodo.getYear() - this.dataContratacao.getYear())));
         float comissaoVenda = this.getVendaPeriodo(periodo).getValorVenda() * 0.3f;
 
 /*         System.out.println("Salário: " + salarioPeriodo);
         System.out.println("Comissão: " + comissaoVenda); */
 
-        return salarioPeriodo + comissaoVenda;
+        if(somenteSalario) {
+            return salarioPeriodo;
+        } else {
+            return salarioPeriodo + comissaoVenda;
+        }
     }
 }
