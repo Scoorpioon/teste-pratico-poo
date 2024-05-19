@@ -13,4 +13,9 @@ public class Gerente extends Funcionario {
 
         this.bonusSalario = 3000 * this.anosServico; // Gerente recebe 3000 por cada ano de serviço
     }
+
+    @Override
+    public float getSalarioPeriodo(LocalDate periodo) {
+        return this.salario + (3000 * (Math.abs(periodo.getYear() - this.dataContratacao.getYear())));
+    }
 }

@@ -2,7 +2,7 @@ package Funcionarios;
 import java.time.LocalDate;
 import java.util.Optional;
 
-// Pensei em fazer tudo nessa classe antes, mas posteriormente decidi transformar ela numa classe mãe, para não deixar atributos exclusivos de cada cargo (como o de vendas, por exemplo) à mostra em cargos que não os devem possuir!
+// Pensei em fazer tudo nessa classe antes, mas posteriormente decidi transformar ela numa classe mãe, para não deixar atributos exclusivos de cada cargo (como o de vendas, por exemplo) a mostra em cargos que não os devem possuir!
 public class Funcionario {
     protected String nome;
     protected LocalDate dataContratacao;
@@ -16,8 +16,20 @@ public class Funcionario {
         System.out.println("");
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public float getSalario() {
         return salario;
+    }
+
+    public float getSalarioPeriodo(LocalDate periodo) {
+        return 0f;
     }
 
     public void setSalario(float salario) {

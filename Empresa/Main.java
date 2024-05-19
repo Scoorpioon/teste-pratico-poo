@@ -2,6 +2,7 @@ package Empresa;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import Funcionarios.Gerente;
@@ -31,8 +32,8 @@ public class Main {
 
         Secretario Jorge = new Secretario("Jorge Carvalho", LocalDate.of(2018, 01, 01));
         Vendedor Ana = new Vendedor("Ana Silva", LocalDate.of(2021, 12, 01), vendasAna);
-        Gerente Bento = new Gerente("Bento Albino", LocalDate.of(2024, 03, 01));
+        Gerente Bento = new Gerente("Bento Albino", LocalDate.of(2014, 03, 01));
 
-/*         metodos.totalPagoNoMes(new List<Object>(), null); */
+        metodos.totalPagoNoMes(Arrays.asList(Jorge, Ana, Bento), LocalDate.of(2021, 12, 01));
     }
 }

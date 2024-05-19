@@ -18,7 +18,7 @@ public class Vendedor extends Funcionario {
 
         this.vendas = vendas; // Todas as vendas que o funcionário possui, em forma de objeto
 
-        this.bonusSalario = 1800 * this.anosServico; // Vendedor recebe 1800 por cada ano de serviço
+        this.bonusSalario = 1800; /* * this.anosServico;  Vendedor recebe 1800 por cada ano de serviço */
     }
 
     public void printarVendas() {
@@ -30,4 +30,25 @@ public class Vendedor extends Funcionario {
             System.out.println("");
         }
     };
+
+    public Vendas getVendaPeriodo(LocalDate periodo) {
+        for(Vendas venda : this.vendas) {
+            if(venda.getDataVenda().equals(periodo)) {
+                return venda;
+            }
+        }
+        
+        return null;
+    }
+
+    @Override
+    public float getSalarioPeriodo(LocalDate periodo) {
+        float salarioPeriodo = this.salario + (1800 * (Math.abs(periodo.getYear() - this.dataContratacao.getYear())));
+        float comissaoVenda = this.getVendaPeriodo(periodo).getValorVenda() * 0.3f;
+
+/*         System.out.println("Salário: " + salarioPeriodo);
+        System.out.println("Comissão: " + comissaoVenda); */
+
+        return salarioPeriodo + comissaoVenda;
+    }
 }
