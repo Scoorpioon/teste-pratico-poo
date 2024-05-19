@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import Funcionarios.Funcionario;
+import Funcionarios.Vendedor;
 
 public class MetodosEmpresa {
     public float totalPagoNoMes(List<Funcionario> funcionarios, LocalDate periodo) {
@@ -76,5 +77,20 @@ public class MetodosEmpresa {
         }
 
         return oQueMaisRecebeuOsBeneficios.getNome(); // Retornando apenas o nome aqui
+    }
+
+    Funcionario funcionarioMaisVendeuMes(List<Vendedor> funcionario, LocalDate periodo) {
+        Vendedor oQueMaisVendeu = null;
+        float valorVendaAtual;
+
+        for(int i = 0; i < funcionario.size(); i++) {
+            valorVendaAtual = funcionario.get(i).getVendaPeriodo(periodo).getValorVenda();
+
+            if(i == 0 || valorVendaAtual > oQueMaisVendeu.getVendaPeriodo(periodo).getValorVenda()) {
+                oQueMaisVendeu = funcionario.get(i);
+            }
+        }
+
+        return oQueMaisVendeu;
     }
 }

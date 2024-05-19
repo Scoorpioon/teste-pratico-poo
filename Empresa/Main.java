@@ -12,8 +12,9 @@ import Funcionarios.Secretario;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        MetodosEmpresa metodos = new MetodosEmpresa();
+        MetodosEmpresa metodos = new MetodosEmpresa(); // Classe que possui os métodos
 
+        // Vendas
         List<Vendas> vendasAna = List.of(
             new Vendas(LocalDate.of(2021, 12, 01), 5200f),
             new Vendas(LocalDate.of(2022, 01, 01), 4000f),
@@ -30,15 +31,18 @@ public class Main {
             new Vendas(LocalDate.of(2022, 04, 01), 6500f)
         );
 
+        // Instância dos funcionários
         Secretario Jorge = new Secretario("Jorge Carvalho", LocalDate.of(2018, 01, 01));
         Vendedor Ana = new Vendedor("Ana Silva", LocalDate.of(2021, 12, 01), vendasAna);
         Vendedor Joao = new Vendedor("João Mendes", LocalDate.of(2021, 12, 01), vendasJoao);
         Gerente Bento = new Gerente("Bento Albino", LocalDate.of(2014, 03, 01));
 
+        // Testes de todos os métodos
         System.out.println(metodos.totalPagoNoMes(Arrays.asList(Jorge, Ana, Bento), LocalDate.of(2021, 12, 01)));
         System.out.println(metodos.totalPagoEmSalarioMes(Arrays.asList(Jorge, Ana, Bento), LocalDate.of(2021, 12, 01)));
         System.out.println(metodos.totalPagoEmBeneficiosMes(Arrays.asList(Jorge, Ana, Joao), LocalDate.of(2021, 12, 01)));
         System.out.println(metodos.funcionarioMaisRecebeuNoMes(Arrays.asList(Jorge, Ana, Bento), LocalDate.of(2021, 12, 01)).getNome());
         System.out.println(metodos.funcionarioMaisRecebeuBeneficiosMes(Arrays.asList(Jorge, Joao, Ana), LocalDate.of(2021, 12, 01)));
+        System.out.println(metodos.funcionarioMaisVendeuMes(Arrays.asList(Joao, Ana), LocalDate.of(2022, 01, 01)).getNome());
     }
 }
