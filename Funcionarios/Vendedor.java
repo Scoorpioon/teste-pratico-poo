@@ -2,7 +2,6 @@ package Funcionarios;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 import Funcionarios.packVenda.Vendas;
 
@@ -14,7 +13,7 @@ public class Vendedor extends Funcionario {
         this.dataContratacao = data;
         this.anosServico = LocalDate.now().getYear() - data.getYear();
         this.salario = 12000.0f;
-        this.beneficio = Optional.of(0.3f);
+        this.recebeBeneficio = true;
 
         this.vendas = vendas; // Todas as vendas que o funcionário possui, em forma de objeto
 
@@ -54,5 +53,10 @@ public class Vendedor extends Funcionario {
         } else {
             return salarioPeriodo + comissaoVenda;
         }
+    }
+
+    @Override
+    public float getBeneficioPeriodo(LocalDate periodo) {
+        return this.getVendaPeriodo(periodo).getValorVenda() * 0.3f;
     }
 }

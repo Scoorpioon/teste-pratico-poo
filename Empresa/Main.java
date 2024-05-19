@@ -11,7 +11,7 @@ import Funcionarios.packVenda.Vendas;
 import Funcionarios.Secretario;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         MetodosEmpresa metodos = new MetodosEmpresa();
 
         List<Vendas> vendasAna = List.of(
@@ -36,5 +36,6 @@ public class Main {
 
         System.out.println(metodos.totalPagoNoMes(Arrays.asList(Jorge, Ana, Bento), LocalDate.of(2021, 12, 01)));
         System.out.println(metodos.totalPagoEmSalarioMes(Arrays.asList(Jorge, Ana, Bento), LocalDate.of(2021, 12, 01)));
+        System.out.println(metodos.totalPagoEmBeneficiosMes(Arrays.asList(Jorge, Ana), LocalDate.of(2021, 12, 01)));
     }
 }

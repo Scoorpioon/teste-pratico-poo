@@ -1,7 +1,6 @@
 package Funcionarios;
 
 import java.time.LocalDate;
-import java.util.Optional;
 
 public class Secretario extends Funcionario {
     public Secretario(String nome, LocalDate data) {
@@ -9,7 +8,7 @@ public class Secretario extends Funcionario {
         this.dataContratacao = data;
         this.anosServico = LocalDate.now().getYear() - data.getYear();
         this.salario = 7000.0f;
-        this.beneficio = Optional.of(0.2f); // Tive de usar o Optional.of, pois como o benefício pode ser nulo por causa do gerente, tem que passar esse método
+        this.recebeBeneficio = true;
     }
 
     @Override
@@ -22,5 +21,10 @@ public class Secretario extends Funcionario {
         } else {
             return salarioPeriodo + beneficio;
         }
+    }
+
+    @Override
+    public float getBeneficioPeriodo(LocalDate periodo) {
+        return 0.2f * this.salario;
     }
 }

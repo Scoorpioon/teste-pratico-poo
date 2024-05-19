@@ -1,6 +1,5 @@
 package Funcionarios;
 import java.time.LocalDate;
-import java.util.Optional;
 
 // Pensei em fazer tudo nessa classe antes, mas posteriormente decidi transformar ela numa classe mãe, para não deixar atributos exclusivos de cada cargo (como o de vendas, por exemplo) amostra em cargos que não os devem possuir!
 public class Funcionario {
@@ -9,7 +8,7 @@ public class Funcionario {
     protected int anosServico; // Os anos de serviço, se contarmos da data de contratação até o ano de 2024
     protected float salario;
     protected float bonusSalario;
-    protected Optional<Float> beneficio; // Deixei o benefício como Optional para que ele possa aceitar nulo, pois nem todos os cargos possuem benefícios
+    protected boolean recebeBeneficio;
     
     public void printarDados() {
         System.out.printf("Dados: %s / %.2f", this.nome, this.salario);
@@ -32,6 +31,10 @@ public class Funcionario {
         return 0f;
     }
 
+    public float getBeneficioPeriodo(LocalDate periodo) {
+        return 0f;
+    }
+
     public void setSalario(float salario) {
         this.salario = salario;
     }
@@ -44,11 +47,11 @@ public class Funcionario {
         this.bonusSalario = bonusSalario;
     }
 
-    public Optional<Float> getBeneficio() {
-        return beneficio;
+    public boolean getRecBeneficio() {
+        return recebeBeneficio;
     }
 
-    public void setBeneficio(Optional<Float> beneficio) {
-        this.beneficio = beneficio;
+    public void setRecBeneficio(boolean beneficio) {
+        this.recebeBeneficio = beneficio;
     }
 }
